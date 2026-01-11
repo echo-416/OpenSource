@@ -172,6 +172,26 @@ void jalankan_baris(char *line) {
 	    }
 	    return;
     }
+    //Penambahan dua nombor;
+    if(strstr(line, "+")) {
+            char a[50], b[50];
+            if (sscanf(line, "%s + %s", a, b) == 2) {
+                     double nilai1, nilai2;
+                     const char *v1 = get_var(a);
+                     const char *v2 = get_var(b);
+                     //Pengesan pembolehubah
+                     if (v1) nilai1 = atof(v1);
+                     else nilai1 = atof(a);
+                     if (v2) nilai2 = atof(v2);
+                     else nilai2 = atof(b);
+                     //hasil tambah nilai
+                     double sum = nilai1 + nilai2;
+                     printf("%g\n", sum);
+                     return;
+
+		     }
+     }
+
 }
 
 int cari_blok(const char *nama) {
